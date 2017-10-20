@@ -1,0 +1,45 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+file_extensions:
+  - in
+scope: source.silvaco-tcad
+contexts:
+  main:
+    # Strings begin and end with quotes, and use backslashes as an escape
+    # character
+    - match: '"'
+      scope: punctuation.definition.string.begin.silvaco-tcad
+      push: double_quoted_string
+
+    - match: '#|comment'
+      scope: punctuation.definition.comment.silvaco-tcad
+      push: line_comment
+
+    - match: '\b(assign|autoelectrode|define|else|extract|go|if|if.end|l.end|l.modify|loop|mask|maskviews|set|source|stmt|system|tonyplot|undefine)\b'
+      scope: keyword.deckbuild.silvaco-tcad
+
+    - match: '\b(a.mesh|r.mesh|x.mesh|y.mesh|z.mesh|beam|characterize|contact|curvetrace|dataset|dbr|defects|degradation|devdegbulktrap|doping|dosextract|electrode|eliminate|extract|eye.diagram|fdx.mesh|fdy.mesh|fourier|impact|intdefects|interface|inttrap|laser|led|lens|load|log|lx.mesh|ly.mesh|material|measure|mesh|method|mobility|models|mqw|nitridecharge|odefects|ointdefects|options|output|photogenerate|photonics|pml|probe|qtregion|qtx.mesh|qty.mesh|quit|reaction|region|regrid|save|set|singleeventupset|solar|solve|spx.mesh|spy.mesh|spz.mesh|symbolic|spread|system|thermcontact|title|tonyplot|trap|utmost|vcsel|waveform|waveguide)\b'
+      scope: keyword.atlas.silvaco-tcad
+
+    - match: '\b(abs5|active|erf|erfc|exp|gradx|grady|log|log10|scales|sqrt|xfn|yfn|zfn)\b'
+      scope: keyword.athena-functions.silvaco-tcad
+
+    - match: '\b(aberration|adapt.mesh|adapt.par|bake|base.mesh|base.par|boundary|cluster|comment|cpulog|deposit|develop|diffuse|disloc.loop|electrode|epitaxy|etch|expose|extract|foreach|go|help|illum.filter|illumination|image|implant|impurity|initialize|interstitial|layout|line|mask|material|method|moments|optical|option|oxide|polish|print.1d|printf|profile|projection|pupil.filter|quit|rate.depo|rate.develop|rate.dope|rate.etch|rate.polish|region|relax|select|set|setmode|silicide|source|stress|stretch|strip|structure|system|tonyplot|trap|unsetmode|vacancy)\b'
+      scope: keyword.athena.silvaco-tcad
+
+    - match: '\b(-)?[0-9.]+\b'
+      scope: constant.numeric.silvaco-tcad
+
+  double_quoted_string:
+    - meta_scope: string.quoted.double.silvaco-tcad
+    - match: '\\.'
+      scope: constant.character.escape.silvaco-tcad
+    - match: '"'
+      scope: punctuation.definition.string.end.silvaco-tcad
+      pop: true
+
+  line_comment:
+    - meta_scope: comment.line.silvaco-tcad
+    - match: $
+      pop: true
