@@ -4,7 +4,7 @@ This is the sublime text syntax file for Silvaco's TCAD. Right now only has keyw
 
 TODO:
 
-[ ] Publish on package control
-[ ] case insensitive keywords
-[ ] Actually do something with the keywords, other than just highlight.
-[ ] Profit?
+- [ ] Publish on package control
+- [ ] case insensitive keywords
+- [ ] Actually do something with the keywords, other than just highlight.
+- [ ] Profit?
